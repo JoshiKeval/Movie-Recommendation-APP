@@ -1,13 +1,19 @@
 const express=require("express");
 const app=express();
-const PORT=8000;
+require("dotenv").config();
+const PORT=process.env.PORT;
 const path=require("path");
 const appRouter = require("./router/fetchdata");
-
 app.use(express.json())
+
+const static_path = path.join(__dirname, "./public/");
+app.use(express.static(static_path));
+
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views/"));
 
+app.use(express.urlencoded({extended: true}))
 app.use("/appdata",appRouter);
 
 
