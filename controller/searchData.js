@@ -1,6 +1,6 @@
 const axios = require("axios");
+const { url } = require("inspector");
 const querystring = require('querystring');
-
 
 
 function searchData(searchItem) {
@@ -8,6 +8,7 @@ function searchData(searchItem) {
     method: "GET",
     url: "https://api.themoviedb.org/3/search/movie?api_key=ea18d74736f4bb39c6d42fbcacdbd96f&language=en-US&query="+searchItem,
   };
+  console.log(options.url);
   return axios.request(options);
 }
 

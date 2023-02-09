@@ -6,7 +6,6 @@ const options = {
 };
 
 function apiData() {
-  
   return axios.request(options);
 }
 
